@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:provider_course/flavor.dart';
 
-void main() => runApp(
-      Provider<Flavor>.value(
-        child: MyApp(),
-        value: Flavor.dev,
-      ),
-    );
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -29,11 +23,10 @@ class _MyHomeAppState extends State<MyHomeApp> {
   int countval = 0; 
   @override
   Widget build(BuildContext context) {
-    final flavor = Provider.of<Flavor>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(flavor.toString()),
+        title: Text('Provider Package'),
       ),
       body: Align(
         alignment: Alignment.center,
