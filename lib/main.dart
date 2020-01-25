@@ -10,11 +10,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Provider Course',
       theme: ThemeData(primaryColor: Colors.amberAccent),
+      
+      // The ChangeNotifierProvider is a root widget which provides values to its child widgets
+      // The value can be taken from a class which mixins with ChangeNotifier.
+      // The Counter is the class name which mixins with the ChangeNotifier.
+      // Here we need to provide a create: function which takes current context to work.
+      // Previously it was called as builder function now its create function.
+      // The function is taking value as the class constructor which needs to be monitored/
       home: ChangeNotifierProvider<Counter>(
         child: MyHomeApp(),
         // Builder is deprecated so now we will use create: insteed of builder
         create: (context) => Counter(),
       ),
+      // So this Counter class will always be active throughout the application 
+
     );
   }
 }
